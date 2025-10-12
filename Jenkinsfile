@@ -16,15 +16,14 @@ pipeline {
             }
         }
 
-        stage('Job 2: Install Docker via Ansible') {
-            steps {
-                sshagent (credentials: ['jenkins-ssh']) {
-                    sh '''
-                    ansible-playbook /home/ubuntu/ansible/install_docker.yml
-                    '''
-                }
+       stage('Job 2: Install Docker with Ansible') {
+           steps {
+             echo 'Running Ansible playbook to install Docker...'
+             sh '''
+             ansible-playbook -i 172.31.7.195, website/install_docker.yml --user=ubuntu --become
+             '''
             }
-        }
+	}
 
         stage('Job 3: Build & Deploy PHP Docker Container (Nginx)') {
             steps {
