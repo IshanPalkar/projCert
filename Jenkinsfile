@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sshagent (credentials: ['jenkins-ssh']) {
                     sh '''
-                    ssh ubuntu@172.31.x.x '
+                    ssh ubuntu@172.31.7.195 '
                       cd /home/ubuntu &&
                       sudo rm -rf website &&
                       git clone -b master https://github.com/IshanPalkar/projCert.git website &&
