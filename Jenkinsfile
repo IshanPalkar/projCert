@@ -20,7 +20,7 @@ pipeline {
            steps {
              echo 'Running Ansible playbook to install Docker...'
              sh '''
-             ansible-playbook -i 172.31.7.195, website/install_docker.yml --user=ubuntu --private-key=~/.ssh/id_rsa \ --become
+             ansible-playbook -i 172.31.7.195, website/install_docker.yml --user=ubuntu --private-key=~/.ssh/id_rsa  --become
              '''
             }
 	}
